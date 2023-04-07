@@ -63,6 +63,8 @@ def generate(dob : str =None, sex : str =None) -> str:
     }
 
     control_digit = str(sum(int(base_rnokpp[index]) * control_scheme[index] for index in range(9)) % 11)
+    if control_digit == '10':
+        control_digit = '0'
 
     return base_rnokpp + control_digit
 
